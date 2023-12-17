@@ -1,4 +1,5 @@
 "use strict";
+
 const Player0Main = document.querySelector(".player--0");
 const Player1Main = document.querySelector(".player--1");
 const Player0ScoreElement = document.getElementById("score--0");
@@ -28,7 +29,7 @@ function initial() {
   Player1ScoreHaving.textContent = 0;
   Player0ScoreElement.textContent = 0;
   Player1ScoreElement.textContent = 0;
-  DiceImage.classList.remove("hidden");
+  DiceImage.classList.add("hidden");
   HoldButton.classList.remove("hidden");
   RollButton.classList.remove("hidden");
   tempScoreBoxes[0].classList.remove("hidden");
