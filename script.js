@@ -68,7 +68,7 @@ HoldButton.addEventListener("click", function () {
     scoresForPlayers[ActivePlayer] += ScoreToBeAdded;
     document.getElementById(`score--${ActivePlayer}`).textContent =
       scoresForPlayers[ActivePlayer];
-    if (scoresForPlayers[ActivePlayer] >= 10) {
+    if (scoresForPlayers[ActivePlayer] >= 100) {
       PlayingBeingContinued = false;
       DiceImage.classList.add("hidden");
       winMoment.classList.remove("hidden");
