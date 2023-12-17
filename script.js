@@ -9,6 +9,8 @@ const RollButton = document.querySelector(".btn--roll");
 const NewButton = document.querySelector(".btn--new");
 const HoldButton = document.querySelector(".btn--hold");
 const DiceImage = document.querySelector(".dice");
+const winMoment = document.querySelector(".idk");
+const tempScoreBoxes = document.querySelectorAll(".current");
 Player0ScoreElement.textContent = 0;
 Player1ScoreElement.textContent = 0;
 DiceImage.classList.add("hidden");
@@ -18,6 +20,7 @@ let scoresForPlayers = [0, 0];
 let PlayingBeingContinued = true;
 
 function initial() {
+  winMoment.classList.add("hidden");
   Player0Main.classList.remove("player--winner");
   Player0Main.classList.add("player--active");
   Player1Main.classList.remove("player--winner");
@@ -26,9 +29,10 @@ function initial() {
   Player0ScoreElement.textContent = 0;
   Player1ScoreElement.textContent = 0;
   DiceImage.classList.remove("hidden");
-  DiceImage.src = null;
   HoldButton.classList.remove("hidden");
   RollButton.classList.remove("hidden");
+  tempScoreBoxes[0].classList.remove("hidden");
+  tempScoreBoxes[1].classList.remove("hidden");
   ScoreToBeAdded = 0;
   ActivePlayer = 0;
   scoresForPlayers = [0, 0];
@@ -64,12 +68,16 @@ HoldButton.addEventListener("click", function () {
     scoresForPlayers[ActivePlayer] += ScoreToBeAdded;
     document.getElementById(`score--${ActivePlayer}`).textContent =
       scoresForPlayers[ActivePlayer];
-    if (scoresForPlayers[ActivePlayer] >= 20) {
+    if (scoresForPlayers[ActivePlayer] >= 10) {
       PlayingBeingContinued = false;
       DiceImage.classList.add("hidden");
+      winMoment.classList.remove("hidden");
       HoldButton.classList.add("hidden");
       RollButton.classList.add("hidden");
       DiceImage.classList.add("hidden");
+      tempScoreBoxes[0].classList.add("hidden");
+      tempScoreBoxes[1].classList.add("hidden");
+      winMoment.textContent = `Player ${ActivePlayer + 1} has won the game`;
       document.getElementById(`current--${ActivePlayer}`).textContent = 0;
       document
         .querySelector(`.player--${ActivePlayer}`)
@@ -79,6 +87,7 @@ HoldButton.addEventListener("click", function () {
         .classList.add("player--winner");
     } else {
       changingPlayersandResettingScores();
+      DiceImage.classList.add("hidden");
     }
   }
 });

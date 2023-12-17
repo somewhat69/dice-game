@@ -169,3 +169,29 @@ main {
 .hidden {
   display: none;
 }
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+a:hover {
+  font-size: large;
+  color: black;
+}
+a {
+  color: royalblue;
+}
+.idk {
+  position: fixed;
+  left: 0;
+  bottom: 30px;
+  width: 100%;
+  color: blue;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+}
